@@ -1,3 +1,3 @@
-# AESO Metrics
+# AHS Wait Time Metrics
 
-Project to scrape and display the AESO metrics in a timeseries database
+A project to track AHS emergency and urgent care centre wait times in the province of Alberta.

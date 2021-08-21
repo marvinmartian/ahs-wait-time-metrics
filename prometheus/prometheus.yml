@@ -1,6 +1,6 @@
 global:
-  scrape_interval:     15s
-  evaluation_interval: 15s
+  scrape_interval:     5m
+  evaluation_interval: 5m
 
   # Attach these labels to any time series or alerts when communicating with
   # external systems (federation, remote storage, Alertmanager).
@@ -13,7 +13,7 @@ global:
 
 # A scrape configuration containing exactly one endpoint to scrape.
 scrape_configs:
-  - job_name: 'aeso'
+  - job_name: 'ahs'
     scrape_interval: 60s
     static_configs:
-      - targets: ['aeso:8080']
+      - targets: ['ahs:8080']
