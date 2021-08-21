@@ -10,7 +10,8 @@ volumes:
 
 services:
   app:
-    build: .
+    # build: .
+    image: marvinmartian/ahs-wait-times
     container_name: ahs
     networks:
       - monitor-net
