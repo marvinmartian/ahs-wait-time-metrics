@@ -14,6 +14,6 @@ global:
 # A scrape configuration containing exactly one endpoint to scrape.
 scrape_configs:
   - job_name: 'ahs'
-    scrape_interval: 60s
+    scrape_interval: 5m
     static_configs:
       - targets: ['ahs:8080']
