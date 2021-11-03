@@ -38,7 +38,6 @@ async function getWaitTimes() {
       var data = response.data;
       data.forEach((elem,index) => {
         ahs_wait_time.set({category: elem.category, city: elem.city, hospital: elem.hospital, province: 'AB' },elem.wait_time);
-        wait_time.set({category: elem.category, city: elem.city, hospital: elem.hospital, province: 'AB' },elem.wait_time);
       })
     } catch (error) {
       console.error("Unable to get wait times.", error);
