@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
-    "prom-client": "^13.1.0"
+    "axios": "^0.26.0",
+    "prom-client": "^14.0.1"
   }
 }
