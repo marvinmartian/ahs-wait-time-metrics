@@ -36,6 +36,7 @@ async function getWaitTimes() {
   if (response.status) {
     try {
       var data = response.data;
+      // console.log(data)
       data.forEach((elem,index) => {
         ahs_wait_time.set({category: elem.category, city: elem.city, hospital: elem.hospital, province: 'AB' },elem.wait_time);
         // ahs_wait_time.set({category: elem.category, city: elem.city, hospital: elem.hospital },elem.wait_time);
@@ -59,21 +60,26 @@ async function getWaitTimes() {
   // {id: 8158, hospital_name: 'Cypress Regional Hospital', city: 'Swift Current'},
   // {id: 8363, hospital_name: 'Alex Ositis Foundation', city: 'Rosetown'},
 
-  let req_array = [];
-  
-  hospital_array.forEach((hospital_obj) => {
-      req_array.push(axios({ url: "https://www.saskhealthauthority.ca/ajax/wait-times/" + hospital_obj.id, headers: { 'User-Agent': user_agent } }))
-  })
+  // let req_array = [];
+  // try {
+  //   hospital_array.forEach((hospital_obj) => {
+  //     req_array.push(axios({ url: "https://www.saskhealthauthority.ca/ajax/wait-times/" + hospital_obj.id, headers: { 'User-Agent': user_agent } }))
+  //     // console.log("https://www.saskhealthauthority.ca/ajax/wait-times/" + hospital_obj.id)
+  // })
 
-  await axios.all(req_array).then(axios.spread((...responses) => {
-    responses.forEach((hospital_response,index) => {
-        // console.log(hospital_array[index].hospital_name);
-        // console.log(hospital_response.data);
-        wait_time.set({city: hospital_array[index].city, province: hospital_array[index].province, hospital: hospital_array[index].hospital_name },hospital_response.data.seconds);
-    })
+  // await axios.all(req_array).then(axios.spread((...responses) => {
+  //   responses.forEach((hospital_response,index) => {
+  //       // console.log(hospital_array[index].hospital_name);
+  //       // console.log(hospital_response.data);
+  //       wait_time.set({city: hospital_array[index].city, province: hospital_array[index].province, hospital: hospital_array[index].hospital_name },hospital_response.data.seconds);
+  //   })
     
     
-  }));
+  // }));
+  // } catch (e) {
+  //   console.error("Unable to retrieve Sask Wait times")
+  // }
+
 }
 
 const server = http.createServer(async (req, res) => {
