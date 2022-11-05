@@ -76,7 +76,7 @@ services:
     image: grafana/grafana-image-renderer:latest
     container_name: renderer
     ports:
-      - 8088:8081
+      - 8088:8088
     volumes:
       - ./renderer-config.json:/usr/src/app/config.json
     networks:
