@@ -58,7 +58,7 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD}
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_RENDERING_SERVER_URL=http://renderer:8081/render
+      - GF_RENDERING_SERVER_URL=http://renderer:8088/render
       - GF_RENDERING_CALLBACK_URL=https://waittimes.omgosh.org/
       - GF_LOG_FILTERS=rendering:debug
     restart: unless-stopped
@@ -76,7 +76,7 @@ services:
     image: grafana/grafana-image-renderer:latest
     container_name: renderer
     ports:
-      - 8081
+      - 8088:8081
     volumes:
       - ./renderer-config.json:/usr/src/app/config.json
     networks:
